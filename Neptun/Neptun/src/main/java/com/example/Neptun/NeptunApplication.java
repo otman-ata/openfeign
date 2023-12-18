@@ -1,21 +1,21 @@
 package com.example.Neptun;
 
-import org.springframework.boot.SpringApplication;
+import Entity.Person;
+import Repository.Repository;
+import Service.Service;
+import Controller.Controller;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
-@Repository
-@Service
-@Controller
+
 @SpringBootApplication
 public class NeptunApplication {
 
 	public static void main(String[] args) {
-		Repository personRepository = new Repository();
-		Service personService = new Service(Repository);
+		Repository Repository = new Repository();
+		Service Service = new Service(Repository);
 		Controller personController = new Controller(Service);
 
 		// Example usage
