@@ -8,13 +8,13 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class ComplexController {
-    private static final int BIG_BOOK_PAGE_THRESHOLD = 100;
-    private final ArticlesClient articlesClient;
+    private static final int AGE_LIMIT = 100;
+    private final PeopleClient peopleClient;
 
-    @GetMapping("find-all-big-book")
-    List<ArticleDto> findAllBigBook() {
-        return articlesClient.allArticles().stream()
-                .filter(article -> article.getPages() > BIG_BOOK_PAGE_THRESHOLD)
+    @GetMapping("getAllPeople")
+    List<ArticleDto> getAllPeople() {
+        return peopleClient.getAllPeople().stream()
+                .filter(people -> people.getAge() > AGE_LIMIT)
                 .toList();
     }
 }
